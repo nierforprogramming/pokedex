@@ -12,7 +12,7 @@ const Navbar = () => {
     <header>
       <div className="nav-container">
         <div className="nav-left">
-          <Logo text="Pokedex" />
+          <Logo text="Pokédéx" />
         </div>
         <div className="nav-right">
           <div className="search-icon">
