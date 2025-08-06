@@ -1,4 +1,5 @@
 import React from "react";
+import UnknownPokemon from "/unknown.png";
 
 import "./Card.css";
 
@@ -25,7 +26,11 @@ const Card = ({ pokemon }) => {
         </div>
         <div className="pc-right">
           <img
-            src={pokemon.sprites.other.dream_world.front_default}
+            src={
+              pokemon.sprites.other.dream_world.front_default
+                ? pokemon.sprites.other.dream_world.front_default
+                : UnknownPokemon
+            }
             alt={pokemon.name}
           />
         </div>

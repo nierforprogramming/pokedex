@@ -1,29 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import Card from "../components/Card/Card";
 import "./Home.css";
-import { getRandomPokemons } from "../utils/utils";
 import Loader from "../components/Loader/Loader";
 
 const Home = () => {
-  const { allPokemons, loader, error } = useContext(PokemonContext);
-  const [randomPokemons, setRandomPokemons] = useState([]);
-
-  useEffect(() => {
-    if (allPokemons.length > 0) {
-      setRandomPokemons(getRandomPokemons(allPokemons, 10));
-    }
-  }, [allPokemons]);
+  const { loader, error, filteredPokemons } = useContext(PokemonContext);
 
   return (
     <section id="home">
       <div className="home-container">
         {loader ? (
           <Loader />
+        ) : error ? (
+          <p>Error loading Pokémon</p>
         ) : (
           <div className="home-pokemon-cards">
-            {randomPokemons.map((pokemon) => (
-              <Card key={pokemon.id} pokemon={pokemon} />
+            {filteredPokemons.map((pokemon) => (
+              <Card key={pokemon.name} pokemon={pokemon} />
             ))}
           </div>
         )}
