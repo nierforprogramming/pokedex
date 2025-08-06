@@ -5,11 +5,24 @@ export const PokemonContext = createContext();
 
 const PokemonContextProvider = (props) => {
   const [allPokemons, setAllPokemons] = useState([]);
+  const [loader, setLoader] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     async function _getAllPokemons() {
-      const _response = await getAllPokemons();
-      setAllPokemons(_response);
+      try {
+        setLoader(true);
+        const _response = await getAllPokemons();
+
+        if (_response.length > 0) {
+          setAllPokemons(_response);
+          setError(false);
+        }
+        setLoader(false);
+      } catch (error) {
+        setError(true);
+        setLoader(false);
+      }
     }
 
     _getAllPokemons();
@@ -17,6 +30,8 @@ const PokemonContextProvider = (props) => {
 
   const value = {
     allPokemons,
+    error,
+    loader,
   };
   return (
     <PokemonContext.Provider value={value}>

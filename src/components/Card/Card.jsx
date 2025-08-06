@@ -18,8 +18,8 @@ const Card = ({ pokemon }) => {
           </div>
 
           <div className="pc-type">
-            {pokemon.types.map((type) => (
-              <p>{type.type.name}</p>
+            {pokemon.types.map((type, index) => (
+              <p key={index}>{type.type.name}</p>
             ))}
           </div>
         </div>
