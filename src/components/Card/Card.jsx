@@ -2,10 +2,13 @@ import React from "react";
 import UnknownPokemon from "/unknown.png";
 
 import "./Card.css";
+import { typeColors } from "../../utils/utils";
 
 const Card = ({ pokemon }) => {
+  const primaryType = pokemon.types?.[0]?.type?.name || "normal";
+  const backgroundColor = typeColors[primaryType] || "#A8A878";
   return (
-    <div className="pokemon-card">
+    <div className="pokemon-card" style={{ backgroundColor }}>
       <div className="pokemon-card-container">
         <div className="pc-left">
           <div className="pc-left-container">
