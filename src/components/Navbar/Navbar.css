@@ -1,0 +1,38 @@
+.nav-container {
+  display: flex;
+  margin-top: 4rem;
+  gap: 4rem;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  background: var(--light-gray);
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 80px;
+  color: var(--dark-gray);
+}
+
+.search-icon {
+  padding-left: 1rem;
+}
+
+.search-input {
+  width: 100%;
+}
+
+.search-input input {
+  width: 100%;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  background: var(--light-gray);
+  font-size: 1.1rem;
+  color: var(--dark-gray);
+}
+
+.search-input input::placeholder {
+  color: var(--dark-gray);
+}

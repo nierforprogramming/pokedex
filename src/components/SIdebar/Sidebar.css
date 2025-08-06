@@ -1,0 +1,15 @@
+aside {
+  flex: 1;
+}
+
+.nav-link {
+  padding: 1rem 0;
+}
+
+.nav-link-container {
+  color: var(--dark-gray);
+  display: flex;
+  gap: 1rem;
+  align-content: center;
+  font-size: 1.3rem;
+}
