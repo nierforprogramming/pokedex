@@ -27,3 +27,15 @@ export const typeColors = {
   normal: "#A8A878",
 };
 
+
+export function formatPokemonHeight(heightInDecimeters) {
+  const totalFeet = heightInDecimeters * 0.328084;
+  const feet = Math.floor(totalFeet);
+  const inches = Math.round((totalFeet - feet) * 12);
+  return `${feet}' ${inches}"`;
+}
+
+export function formatPokemonWeight(weightInHectograms) {
+  const lbs = weightInHectograms * 0.220462;
+  return `${lbs.toFixed(1)} lbs`;
+}

@@ -1,12 +1,19 @@
 import React from "react";
 import UnknownPokemon from "/unknown.png";
+import PokeBall from "/pokeball.png";
 
 import "./Card.css";
 import { typeColors } from "../../utils/utils";
+import { MdCatchingPokemon } from "react-icons/md";
 
 const Card = ({ pokemon }) => {
+  if (!pokemon || !pokemon.types || !pokemon.sprites) {
+    return null;
+  }
+
   const primaryType = pokemon.types?.[0]?.type?.name || "normal";
   const backgroundColor = typeColors[primaryType] || "#A8A878";
+
   return (
     <div className="pokemon-card" style={{ backgroundColor }}>
       <div className="pokemon-card-container">
@@ -28,11 +35,13 @@ const Card = ({ pokemon }) => {
           </div>
         </div>
         <div className="pc-right">
+          <div className="poke-ball">
+            <MdCatchingPokemon className="pokemon-ball" />
+          </div>
           <img
             src={
-              pokemon.sprites.other.dream_world.front_default
-                ? pokemon.sprites.other.dream_world.front_default
-                : UnknownPokemon
+              pokemon.sprites.other?.dream_world?.front_default ||
+              UnknownPokemon
             }
             alt={pokemon.name}
           />

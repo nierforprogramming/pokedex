@@ -1,7 +1,7 @@
 .pokemon-card {
   border-radius: 10px;
-  position: relative;
   width: 370px;
+  position: relative;
 }
 .pokemon-card-container {
   display: flex;
@@ -49,6 +49,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .pc-right img {
@@ -56,6 +57,22 @@
   max-height: 100%;
   object-fit: contain;
 }
+
+.pc-right .poke-ball {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  right: -38px;
+  bottom: -40px;
+  width: 200px;
+}
+
+.pc-right .pokemon-ball {
+  width: 200px;
+  height: 200px;
+  fill: rgba(255, 255, 255, 0.2);
+}
+
 @media (max-width: 575px) {
   .pokemon-card {
     width: 95%;

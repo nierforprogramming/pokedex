@@ -36,6 +36,17 @@
   color: var(--dark-gray);
 }
 
+@media (max-width: 1536px) {
+  header {
+    position: fixed;
+    padding-block: 2rem;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    top: 0;
+  }
+}
+
 @media (max-width: 575px) {
   header {
     position: fixed;

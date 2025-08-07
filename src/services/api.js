@@ -37,6 +37,21 @@ async function getPokemonDetails(url) {
   }
 }
 
+// Get single pokeom
+export async function fetchSinglePokemon(id) {
+      try {
+        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+
+        if (res.data) {
+          
+          return res.data
+        }
+               
+      } catch (err) {
+        console.error("Error fetching Pokémon", err);
+      }
+    }
+
 // getAllPokemons().then(pokemons => {
 //   console.log("All Pokémon details:", pokemons);
 // });

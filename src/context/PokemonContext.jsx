@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { getAllPokemons } from "../services/api";
 import { getRandomPokemons } from "../utils/utils";
 
-export const PokemonContext = createContext();
+const PokemonContext = createContext();
 
 const PokemonContextProvider = (props) => {
   const [allPokemons, setAllPokemons] = useState([]);
@@ -11,6 +11,7 @@ const PokemonContextProvider = (props) => {
   const [randomPokemons, setRandomPokemons] = useState([]);
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [search, setSearch] = useState("");
+  const [selectedPokemon, setSelectedPokemon] = useState([]);
 
   useEffect(() => {
     async function _getAllPokemons() {
@@ -52,10 +53,13 @@ const PokemonContextProvider = (props) => {
     loader,
     search,
     setSearch,
+    setLoader,
     randomPokemons,
     setRandomPokemons,
     filteredPokemons,
     setFilteredPokemons,
+    selectedPokemon,
+    setSelectedPokemon,
   };
 
   return (
@@ -65,4 +69,4 @@ const PokemonContextProvider = (props) => {
   );
 };
 
-export default PokemonContextProvider;
+export { PokemonContext, PokemonContextProvider };

@@ -2,6 +2,13 @@ main {
   margin-top: 4rem;
 }
 
+@media (max-width: 1536px) {
+  main {
+    margin-top: 8rem;
+    padding: unset;
+  }
+}
+
 @media (max-width: 575px) {
   main {
     margin-top: 15rem;
