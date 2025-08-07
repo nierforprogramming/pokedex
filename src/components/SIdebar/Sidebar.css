@@ -42,7 +42,23 @@ aside {
     display: flex;
     align-items: center;
     z-index: 50;
-    width: 90%;
+    width: 100%;
+    gap: 1rem;
+    background-color: white;
+    position: fixed;
+    top: 20%;
+  }
+}
+
+@media (max-width: 414px) {
+  .side-bar {
+    position: relative;
+  }
+  .sidebar-container {
+    display: flex;
+    align-items: center;
+    z-index: 50;
+    width: 100%;
     gap: 1rem;
     background-color: white;
     position: fixed;
