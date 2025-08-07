@@ -57,6 +57,12 @@
   object-fit: contain;
 }
 
+@media (max-width: 431px) {
+  .pokemon-card {
+    width: 100%;
+  }
+}
+
 @media (max-width: 376px) {
   .pokemon-card {
     width: 340px;
