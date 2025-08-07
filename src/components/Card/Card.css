@@ -1,7 +1,7 @@
 .pokemon-card {
-  background-color: darkturquoise;
   border-radius: 10px;
   position: relative;
+  width: 370px;
 }
 .pokemon-card-container {
   display: flex;
@@ -57,7 +57,8 @@
   object-fit: contain;
 }
 
-/* Color for Pokemon types */
-/* 
-
-*/
+@media (max-width: 376px) {
+  .pokemon-card {
+    width: 340px;
+  }
+}

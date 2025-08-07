@@ -1,0 +1,10 @@
+main {
+  margin-top: 4rem;
+}
+
+@media (max-width: 415px) {
+  main {
+    margin-top: 15rem;
+    padding: unset;
+  }
+}

@@ -1,6 +1,5 @@
 .nav-container {
   display: flex;
-  margin-top: 4rem;
   gap: 4rem;
 }
 
@@ -35,4 +34,52 @@
 
 .search-input input::placeholder {
   color: var(--dark-gray);
+}
+
+@media (max-width: 415px) {
+  header {
+    position: fixed;
+    padding-block: 2rem;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    top: 0;
+  }
+  .container {
+    padding: 1rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .nav-right {
+    width: 90%;
+  }
+}
+
+@media (max-width: 375px) {
+  header {
+    position: fixed;
+    padding-block: 2rem;
+    width: 100%;
+    z-index: 50;
+    background-color: white;
+    top: 0;
+  }
+  .container {
+    padding: 1rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .nav-right {
+    width: 90%;
+  }
 }
