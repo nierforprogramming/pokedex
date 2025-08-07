@@ -34,6 +34,26 @@ aside {
   }
 }
 
+@media (max-width: 435px) {
+  aside {
+    flex: none;
+  }
+  .side-bar {
+    position: relative;
+  }
+  .sidebar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    width: 100%;
+    gap: 1rem;
+    background-color: white;
+    position: fixed;
+    top: 18%;
+  }
+}
+
 @media (max-width: 431px) {
   aside {
     flex: none;
