@@ -51,12 +51,15 @@
   }
 }
 
-@media (max-width: 415px) {
+@media (max-width: 435px) {
+  .not-found-container {
+    padding-block: 5rem;
+  }
   .number-four {
-    font-size: 10rem;
+    font-size: 12rem;
   }
 
   .pokemon-ball {
-    width: 120px;
+    width: 150px;
   }
 }

@@ -91,7 +91,9 @@
   }
 
   .nav-right {
-    width: 90%;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
   }
 }
 
