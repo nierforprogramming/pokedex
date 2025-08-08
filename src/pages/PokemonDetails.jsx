@@ -6,13 +6,14 @@ import Loader from "../components/Loader/Loader";
 import Card from "../components/Card/Card";
 import "./PokemonDetails.css";
 import { formatPokemonHeight, formatPokemonWeight } from "../utils/utils";
+import EvolutionChain from "../components/EvolutionChain/EvolutionChain";
 
 const PokemonDetails = () => {
   const { pokemonId } = useParams();
   const { loader, setLoader, selectedPokemon, setSelectedPokemon } =
     useContext(PokemonContext);
 
-  const [selectedTab, setSelectedTab] = useState("info");
+  const [selectedTab, setSelectedTab] = useState("measurements");
   const [animatedStats, setAnimatedStats] = useState([]);
 
   useEffect(() => {
@@ -47,102 +48,113 @@ const PokemonDetails = () => {
   }
 
   return (
-    <div className="pk-details">
-      <div className="pk-details-container">
-        <Card pokemon={selectedPokemon} />
-        <div className="pk-stats">
-          <div className="pk-stats-container">
-            {/* Tab Selector */}
-            <div className="pk-stats-head-container">
-              {["info", "measurements", "base-stats"].map((tab) => (
-                <div
-                  key={tab}
-                  className={`pk-stats-head ${
-                    selectedTab === tab ? "active-tab" : ""
-                  }`}
-                  onClick={() => setSelectedTab(tab)}
-                >
-                  {tab
-                    .replace("-", " ")
-                    .replace(/\b\w/g, (l) => l.toUpperCase())}
-                </div>
-              ))}
-            </div>
+    <>
+      <div className="pk-details">
+        <div className="pk-details-container">
+          <Card pokemon={selectedPokemon} />
+          <div className="pk-stats">
+            <div className="pk-stats-container">
+              {/* Tab Selector */}
+              <div className="pk-stats-head-container">
+                {["info", "measurements", "base-stats", "moves"].map((tab) => (
+                  <div
+                    key={tab}
+                    className={`pk-stats-head ${
+                      selectedTab === tab ? "active-tab" : ""
+                    }`}
+                    onClick={() => setSelectedTab(tab)}
+                  >
+                    {tab
+                      .replace("-", " ")
+                      .replace(/\b\w/g, (l) => l.toUpperCase())}
+                  </div>
+                ))}
+              </div>
 
-            {/* Tab Content */}
-            <div className="pk-stats-content">
-              {selectedTab === "info" && (
-                <div className="detailtabs-content info-content">
-                  <p>
-                    {selectedPokemon.name} is a Pokémon with base experience of{" "}
-                    {selectedPokemon.base_experience} and{" "}
-                    {selectedPokemon.types?.length || 0} type(s).
-                  </p>
-                </div>
-              )}
-
-              {selectedTab === "measurements" && (
-                <div className="detailtabs-content measurements-content">
-                  <div className="pk-stats-content-title">
-                    <p className="title">Height</p>
+              {/* Tab Content */}
+              <div className="pk-stats-content">
+                {selectedTab === "info" && (
+                  <div className="detailtabs-content info-content">
                     <p>
-                      {formatPokemonHeight(selectedPokemon.height)} (
-                      {(selectedPokemon.height * 0.1).toFixed(2)} m)
+                      {selectedPokemon.name} is a Pokémon with base experience
+                      of {selectedPokemon.base_experience} and{" "}
+                      {selectedPokemon.types?.length || 0} type(s).
                     </p>
                   </div>
-                  <div className="pk-stats-content-title">
-                    <p className="title">Weight</p>
-                    <p>
-                      {formatPokemonWeight(selectedPokemon.weight)} (
-                      {(selectedPokemon.weight * 0.1).toFixed(2)} kg)
-                    </p>
+                )}
+
+                {selectedTab === "moves" && (
+                  <div className="detailtabs-content moves-content">
+                    {selectedPokemon?.moves.slice(0, 5).map(({ move }) => (
+                      <p>{move.name.replace("-", " ")}</p>
+                    ))}
                   </div>
-                  <div className="pk-stats-content-title">
-                    <p className="title">Abilities</p>
-                    <p>
-                      {selectedPokemon.abilities
-                        ?.map((ability) => ability.ability?.name)
-                        .join(", ") || "N/A"}
-                    </p>
+                )}
+
+                {selectedTab === "measurements" && (
+                  <div className="detailtabs-content measurements-content">
+                    <div className="pk-stats-content-title">
+                      <p className="title">Height</p>
+                      <p>
+                        {formatPokemonHeight(selectedPokemon.height)} (
+                        {(selectedPokemon.height * 0.1).toFixed(2)} m)
+                      </p>
+                    </div>
+                    <div className="pk-stats-content-title">
+                      <p className="title">Weight</p>
+                      <p>
+                        {formatPokemonWeight(selectedPokemon.weight)} (
+                        {(selectedPokemon.weight * 0.1).toFixed(2)} kg)
+                      </p>
+                    </div>
+                    <div className="pk-stats-content-title">
+                      <p className="title">Abilities</p>
+                      <p>
+                        {selectedPokemon.abilities
+                          ?.map((ability) => ability.ability?.name)
+                          .join(", ") || "N/A"}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
+                )}
 
-              {selectedTab === "base-stats" && (
-                <div className="detailtabs-content base-stats-content">
-                  {selectedPokemon.stats?.map((stat, index) => {
-                    const statName = stat.stat.name
-                      .replace("special-attack", "Special Attack")
-                      .replace("special-defense", "Special Defense")
-                      .replace("attack", "Attack")
-                      .replace("defense", "Defense")
-                      .replace("speed", "Speed")
-                      .replace("hp", "HP");
+                {selectedTab === "base-stats" && (
+                  <div className="detailtabs-content base-stats-content">
+                    {selectedPokemon.stats?.map((stat, index) => {
+                      const statName = stat.stat.name
+                        .replace("special-attack", "Special Attack")
+                        .replace("special-defense", "Special Defense")
+                        .replace("attack", "Attack")
+                        .replace("defense", "Defense")
+                        .replace("speed", "Speed")
+                        .replace("hp", "HP");
 
-                    const width = animatedStats.length
-                      ? `${(stat.base_stat / 255) * 100}%`
-                      : "0%";
+                      const width = animatedStats.length
+                        ? `${(stat.base_stat / 255) * 100}%`
+                        : "0%";
 
-                    return (
-                      <div className="stat-row" key={index}>
-                        <p className="stat-name">{statName}</p>
-                        <div className="stat-bar-wrapper">
-                          <div
-                            className={`stat-bar ${stat.stat.name}`}
-                            style={{ width }}
-                          ></div>
+                      return (
+                        <div className="stat-row" key={index}>
+                          <p className="stat-name">{statName}</p>
+                          <div className="stat-bar-wrapper">
+                            <div
+                              className={`stat-bar ${stat.stat.name}`}
+                              style={{ width }}
+                            ></div>
+                          </div>
+                          <p className="stat-value">{stat.base_stat}</p>
                         </div>
-                        <p className="stat-value">{stat.base_stat}</p>
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
+        <EvolutionChain pokemonId={pokemonId} />
       </div>
-    </div>
+    </>
   );
 };
 

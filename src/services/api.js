@@ -52,6 +52,32 @@ export async function fetchSinglePokemon(id) {
       }
     }
 
+// Get evolution chain name
+export async function getEvolutionChainNames(pokemonId) {
+  try {
+    const speciesResponse = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}`);
+    const evoChainUrl = speciesResponse.data.evolution_chain?.url;
+
+    if (!evoChainUrl) throw new Error("No evolution chain found for this species.");
+
+    const chainResponse = await axios.get(evoChainUrl);
+    const names = extractEvolutionNames(chainResponse.data.chain);
+
+    return names;
+  } catch (error) {
+    console.error("Evolution chain fetch error:", error.message);
+    return []; // Fallback to empty array on error
+  }
+}
+
+// Utility to traverse the chain
+function extractEvolutionNames(chainNode, result = []) {
+  if (!chainNode) return result;
+  result.push(chainNode.species.name);
+  chainNode.evolves_to.forEach((next) => extractEvolutionNames(next, result));
+  return result;
+}
+
 // getAllPokemons().then(pokemons => {
 //   console.log("All Pokémon details:", pokemons);
 // });

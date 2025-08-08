@@ -10,6 +10,7 @@
 .pk-details-container .pokemon-card {
   width: 50%;
   height: 100%;
+  overflow: hidden;
 }
 
 .pk-stats {
@@ -45,6 +46,7 @@
 .pk-stats-content {
   display: flex;
   flex-direction: column;
+  min-height: 200px;
   gap: 1rem;
 }
 
@@ -62,6 +64,16 @@
 
 .detailtabs-content::first-letter {
   text-transform: capitalize;
+}
+
+.detailtabs-content.moves-content {
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.detailtabs-content.moves-content p {
+  color: var(--dark-gray);
+  padding-bottom: 0.2rem;
 }
 
 .stat-row {
