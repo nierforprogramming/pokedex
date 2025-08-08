@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { getAllPokemons } from "../services/api";
+import { fetchSinglePokemon, getAllPokemons } from "../services/api";
 import { getRandomPokemons } from "../utils/utils";
 
 const PokemonContext = createContext();
@@ -12,6 +12,7 @@ const PokemonContextProvider = (props) => {
   const [filteredPokemons, setFilteredPokemons] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedPokemon, setSelectedPokemon] = useState([]);
+  const [searchedPokemon, setSearchedPokemon] = useState([]);
 
   useEffect(() => {
     async function _getAllPokemons() {
@@ -24,11 +25,12 @@ const PokemonContextProvider = (props) => {
           const random = getRandomPokemons(_response, 10);
           setRandomPokemons(random);
           setFilteredPokemons(random);
+          setSearchedPokemon(random);
           setError(false);
         }
-        setLoader(false);
       } catch (error) {
         setError(true);
+      } finally {
         setLoader(false);
       }
     }
@@ -37,15 +39,43 @@ const PokemonContextProvider = (props) => {
   }, []);
 
   useEffect(() => {
-    if (search.trim() === "") {
-      setFilteredPokemons(randomPokemons);
-    } else {
-      const filtered = allPokemons.filter((pokemon) =>
-        pokemon.name.toLowerCase().includes(search.toLowerCase())
+    async function _fetchSinglePokemon() {
+      const query = search.trim().toLowerCase();
+
+      if (!query) {
+        setSearchedPokemon(randomPokemons);
+        setError(false);
+        return;
+      }
+
+      setLoader(true);
+      setSearchedPokemon([]);
+      setError(false);
+
+      const matches = randomPokemons.filter((pokemon) =>
+        pokemon.name.toLowerCase().includes(query)
       );
-      setFilteredPokemons(filtered);
+
+      if (matches.length > 0) {
+        setSearchedPokemon(matches);
+        setLoader(false);
+        return;
+      }
+
+      try {
+        const response = await fetchSinglePokemon(query);
+        if (!response) throw new Error("Pokémon not found");
+        setSearchedPokemon([response]);
+      } catch (error) {
+        setError(true);
+        setSearchedPokemon([]);
+      } finally {
+        setLoader(false);
+      }
     }
-  }, [search, allPokemons, randomPokemons]);
+
+    _fetchSinglePokemon();
+  }, [search, randomPokemons]);
 
   const value = {
     allPokemons,
@@ -60,6 +90,7 @@ const PokemonContextProvider = (props) => {
     setFilteredPokemons,
     selectedPokemon,
     setSelectedPokemon,
+    searchedPokemon,
   };
 
   return (

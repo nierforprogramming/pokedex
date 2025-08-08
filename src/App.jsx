@@ -6,6 +6,7 @@ import Sidebar from "./components/SIdebar/Sidebar";
 import Favorites from "./pages/Favorites";
 import Main from "./components/Main/Main";
 import PokemonDetails from "./pages/PokemonDetails";
+import Types from "./pages/Types";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/:pokemonId" element={<PokemonDetails />} />
               <Route path="/favorites" element={<Favorites />} />
+              <Route path="/types" element={<Types />} />
             </Routes>
           </Main>
         </div>

@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
-import Logo from "../Logo";
 import { FaSearch } from "react-icons/fa";
-
-import "./Navbar.css";
 import { PokemonContext } from "../../context/PokemonContext";
+import Logo from "../Logo";
+import "./Navbar.css";
 
 const Navbar = () => {
   const { search, setSearch } = useContext(PokemonContext);
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+  };
 
   return (
     <header>
@@ -18,15 +22,14 @@ const Navbar = () => {
           <div className="search-icon">
             <FaSearch />
           </div>
-
           <div className="search-input">
             <input
               type="text"
               name="search"
               id="search"
               value={search}
-              placeholder="Search Pokemon"
-              onChange={(e) => setSearch(e.target.value)}
+              placeholder="Search Pokémon"
+              onChange={handleInputChange}
             />
           </div>
         </div>

@@ -1,0 +1,42 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nf-status-code {
+  display: flex;
+}
+.number-four {
+  font-size: 25rem;
+  font-weight: bold;
+  color: var(--gray-200);
+}
+
+.pokemon-ball {
+  width: 300px;
+}
+
+.pokemon-ball img {
+  max-width: 100%;
+  max-height: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.nf-message {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nf-message-head {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nf-message-para {
+  color: var(--dark-gray);
+  font-size: 1.2rem;
+}

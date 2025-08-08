@@ -6,12 +6,14 @@ export async function getAllPokemons() {
     // Total number of Pokemons available
         const metadata = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=1");
         
-            const totalCount = metadata.data.count
+            const totalCount =  50
     
+            //
     // Fetching all pokemons dynamically even if pokemon number increases in future
 
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${totalCount}`);
     const { results } = response.data;
+    
 
     // Fetch full details for each Pokémon in parallel
     const detailedData = await Promise.all(
@@ -41,14 +43,15 @@ async function getPokemonDetails(url) {
 export async function fetchSinglePokemon(id) {
       try {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-
         if (res.data) {
-          
+          console.log(res.data);
+                 
           return res.data
         }
-               
+            throw new Error("No data returned");
       } catch (err) {
         console.error("Error fetching Pokémon", err);
+        throw err
       }
     }
 

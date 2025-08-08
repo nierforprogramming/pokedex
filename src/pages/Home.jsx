@@ -1,25 +1,30 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import Card from "../components/Card/Card";
-import PokemonDetails from "../pages/PokemonDetails";
-import "./Home.css";
 import Loader from "../components/Loader/Loader";
 import { Link } from "react-router-dom";
+import "./Home.css";
+import NotFound from "../components/NotFound/NotFound";
 
 const Home = () => {
-  const { loader, error, filteredPokemons } = useContext(PokemonContext);
+  const { loader, error, searchedPokemon } = useContext(PokemonContext);
+
   return (
     <section id="home">
       <div className="home-container">
         {loader ? (
           <Loader />
         ) : error ? (
-          <p>Error loading Pokémon</p>
+          <div className="not-found">
+            <NotFound />
+          </div>
+        ) : searchedPokemon.length === 0 ? (
+          <p>No Pokémon to display.</p>
         ) : (
           <div className="home-pokemon-cards">
-            {filteredPokemons.map((pokemon) => (
+            {searchedPokemon.map((pokemon) => (
               <Link to={`/${pokemon.id}`} key={pokemon.id}>
-                <Card key={pokemon.name} pokemon={pokemon} />
+                <Card pokemon={pokemon} />
               </Link>
             ))}
           </div>

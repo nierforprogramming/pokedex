@@ -32,7 +32,7 @@ const Sidebar = () => {
           </div>
 
           <div className="nav-link">
-            <NavLink className="nav-link-container" to="/">
+            <NavLink className="nav-link-container" to="/types">
               <div className="side-bar-icon">
                 <FaBook />
               </div>
