@@ -58,6 +58,8 @@
   }
   .container {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-container {
@@ -81,6 +83,8 @@
     top: 0;
   }
   .container {
+    display: flex;
+    justify-content: center;
   }
 
   .nav-container {
@@ -107,6 +111,8 @@
   }
   .container {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-container {
@@ -131,6 +137,8 @@
   }
   .container {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-container {
@@ -155,6 +163,8 @@
   }
   .container {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-container {
@@ -173,11 +183,12 @@
     position: fixed;
     padding-block: 2rem;
     z-index: 50;
-    background-color: rebeccapurple;
     top: 0;
   }
   .container {
     position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-container {

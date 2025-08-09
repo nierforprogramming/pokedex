@@ -4,7 +4,6 @@
 
 main {
   flex: 6;
-  padding: 1rem;
 }
 
 @media (max-width: 412px) {

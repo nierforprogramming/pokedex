@@ -1,5 +1,6 @@
 main {
   margin-top: 4rem;
+  overflow: hidden;
 }
 
 @media (max-width: 1536px) {
