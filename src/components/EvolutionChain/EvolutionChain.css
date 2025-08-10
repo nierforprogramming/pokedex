@@ -57,26 +57,6 @@
   overflow: hidden;
 }
 
-/* .one-evolution.ec-pokemon-0::after {
-  border: none;
-}
-
-.two-evolution.ec-pokemon-1::after {
-  border: none;
-} */
-
-/* .ec-pokemon-0::after,
-.ec-pokemon-1::after {
-  position: absolute;
-  content: ">";
-  top: 50%;
-  right: -250px;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  z-index: -1;
-  height: 4px;
-} */
-
 .ec-pokemon-image img {
   width: 100%;
   height: auto;
@@ -84,4 +64,108 @@
   object-fit: contain;
 }
 
-/* Chain Color */
+/* Responsive design  */
+
+/* 📱 Extra small devices (phones <576px) */
+@media (max-width: 575.98px) {
+  .nav-right {
+    display: none;
+  }
+  .pk-details {
+    padding-inline: 1rem;
+  }
+  .pk-details-container {
+    flex-direction: column;
+  }
+
+  .pk-details-container .pokemon-card {
+    width: 100%;
+  }
+
+  .pk-stats-content-title {
+    width: 100%;
+  }
+
+  .pk-stats-content {
+    width: 400px;
+    min-height: 250px;
+  }
+
+  .detailtabs-content {
+    width: 100%;
+  }
+
+  .ec-pokemons {
+    flex-direction: column;
+  }
+}
+
+/* 📲 Small devices (phones 576px–767.98px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  body {
+    background-color: #e0f7fa; /* light cyan */
+  }
+
+  .pk-details-container {
+    flex-direction: column;
+  }
+
+  .pk-details-container .pokemon-card {
+    width: 100%;
+  }
+
+  .pk-stats-content-title {
+    width: 100%;
+  }
+
+  .pk-stats-content {
+    width: 400px;
+    min-height: 250px;
+  }
+
+  .detailtabs-content {
+    width: 100%;
+  }
+  .stat-row {
+    background-color: rebeccapurple;
+  }
+
+  .ec-pokemons {
+    flex-direction: column;
+  }
+}
+
+/* 💻 Medium devices (tablets 768px–991.98px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    background-color: #e8f5e9; /* light green */
+  }
+}
+
+/* 🖥️ Large devices (992px–1199.98px) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  body {
+    background-color: #f3e5f5; /* lavender */
+  }
+}
+
+/* 🧑‍💻 Extra large (1200px–1399.98px) */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  body {
+    background-color: #e3f2fd; /* sky blue */
+  }
+}
+
+/* 🌄 XXL screens (1400px–1599.98px) */
+@media (min-width: 1400px) and (max-width: 1599.98px) {
+  body {
+    background-color: #fff3e0; /* light orange */
+  }
+}
+
+/* 🖼️ Ultra-wide (≥1600px and above, e.g., 4K) */
+@media (min-width: 1600px) {
+  body {
+    background-color: #ede7f6; /* soft violet */
+  }
+}
