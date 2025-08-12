@@ -20,11 +20,12 @@
 
 .category-menu {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   margin-bottom: 2rem;
   gap: 1.5rem;
   background-color: white;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   padding-bottom: 4rem;
   padding-inline: var(--padding-inline);
   border-bottom-left-radius: 2rem;
