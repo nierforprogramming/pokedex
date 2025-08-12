@@ -28,7 +28,7 @@ header {
 .nav-right {
   display: flex;
   align-items: center;
-  width: 40%;
+  width: 50%;
   background: var(--light-gray);
   gap: 0.5rem;
   padding: 0.5rem;
@@ -86,6 +86,10 @@ header {
   .category-menu {
     background-color: #fff9e6; /* Light cream yellow */
   }
+
+  .nav-right {
+    width: 50%;
+  }
 }
 
 /* 📲 Small Devices (Phones, 576px - 767.98px) */
@@ -110,13 +114,12 @@ header {
   .nav-container {
     gap: 2rem;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
   }
 
-  .logo img {
-    object-fit: contain;
+  .logo {
+    justify-content: center;
   }
-
   .nav-right {
     width: 90%;
   }
@@ -141,7 +144,6 @@ header {
 
   .nav-right {
     text-align: center;
-    width: 80%;
-    margin: 0 auto;
+    width: 100%;
   }
 }
