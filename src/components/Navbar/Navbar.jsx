@@ -21,12 +21,33 @@ const Navbar = () => {
 
   useEffect(() => {
     const nav = document.querySelector("header");
-    const home = document.querySelector("#home");
+    const home = document.querySelector(".home-container");
 
-    if (nav && home) {
-      const navHeight = nav.offsetHeight;
-      home.style.paddingTop = `${navHeight}px`;
+    function updatePadding() {
+      if (nav && home) {
+        const navHeight = nav.offsetHeight;
+        home.style.paddingTop = `${navHeight}px`;
+      }
     }
+
+    // Initial padding set on mount
+    updatePadding();
+
+    // Debounced resize handler
+    let timeout;
+    const handleResize = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        updatePadding();
+      }, 10); // delay to allow layout to stabilize
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeout);
+    };
   }, []);
 
   return (
