@@ -91,10 +91,6 @@
 /* custom breakpoint - surface duo */
 
 @media (max-width: 540px) {
-  body {
-    background-color: red; /* Lavender */
-  }
-
   .news-card-container {
     flex-direction: row;
     align-items: center;
