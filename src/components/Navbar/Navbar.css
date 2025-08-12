@@ -25,6 +25,9 @@ header {
   object-fit: contain;
 }
 
+.nav-left {
+  color: black;
+}
 .nav-right {
   display: flex;
   align-items: center;

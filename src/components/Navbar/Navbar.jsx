@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { PokemonContext } from "../../context/PokemonContext";
 import Logo from "../Logo";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { search, setSearch, setSearching, searching } =
@@ -53,9 +54,10 @@ const Navbar = () => {
   return (
     <header>
       <div className="nav-container">
-        <div className="nav-left">
+        <Link to={"/"} className="nav-left">
           <Logo text="Pokedex" />
-        </div>
+        </Link>
+
         <div className="nav-right">
           <div className="search-icon">
             <FaSearch />

@@ -27,6 +27,8 @@
   padding-top: 0.5rem;
   padding-bottom: 4rem;
   padding-inline: var(--padding-inline);
+  border-bottom-left-radius: 2rem;
+  border-bottom-right-radius: 2rem;
 }
 
 .home-container .news-cards .news-card {
@@ -70,6 +72,10 @@
 @media (max-width: 575.98px) {
   body {
     background-color: #e0ccff; /* Lavender */
+  }
+
+  .home-container .news-cards .news-card {
+    margin-block: 0;
   }
 }
 

@@ -28,6 +28,10 @@ const Home = () => {
       text: "Types",
       color: "purple",
     },
+    {
+      text: "News",
+      color: "dodgerblue",
+    },
   ];
 
   return (

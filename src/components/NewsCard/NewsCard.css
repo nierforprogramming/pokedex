@@ -88,30 +88,6 @@
   }
 }
 
-/* custom breakpoint - surface duo */
-
-@media (max-width: 540px) {
-  .news-card-container {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .news-left {
-    width: 100%;
-  }
-
-  .news-title {
-    font-size: 0.7rem;
-  }
-  .news-right {
-    width: 100%;
-  }
-  .news-right .image {
-    width: 100%;
-    height: 150px;
-  }
-}
-
 /* Extra Extra Small - Tiny screens like iPhone SE (< 320px) */
 @media (max-width: 319.98px) {
   body {
@@ -125,5 +101,10 @@
   .news-card-container {
     flex-direction: column;
     align-items: center;
+    gap: 0;
+  }
+
+  .news-cards-wrapper {
+    padding-inline: 0.8rem;
   }
 }
