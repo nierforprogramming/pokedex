@@ -1,0 +1,133 @@
+.news-card-container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.news-left {
+  width: 50%;
+}
+
+.news-date {
+  padding-block: 1rem;
+  color: var(--dark-gray);
+}
+
+.news-right .image {
+  width: 256px;
+  height: 150px;
+
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.news-right .image img {
+  border-radius: 12px;
+
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Prevent overflow */
+  display: block; /* Remove bottom whitespace */
+  transition: transform 0.3s ease;
+
+  object-fit: cover;
+}
+
+.news-right .image img:hover {
+  transform: scale(1.05);
+}
+
+/* Extra Large - Normal desktops/laptops (< 1400px) */
+@media (max-width: 1399.98px) {
+  body {
+    background-color: #d6e9f9; /* Light blue */
+  }
+}
+
+/* Large - Small laptops/tablets in landscape (< 1200px) */
+@media (max-width: 1199.98px) {
+  body {
+    background-color: #c1f0dc; /* Mint green */
+  }
+}
+
+/* Medium - Tablets in portrait (< 992px) */
+@media (max-width: 991.98px) {
+  body {
+    background-color: #fff0b3; /* Light yellow */
+  }
+}
+
+/* Small - Phones in landscape/small tablets (< 768px) */
+@media (max-width: 767.98px) {
+  body {
+    background-color: #ffc2c2; /* Soft red */
+  }
+}
+
+/* Extra Small - Phones in portrait (< 576px) */
+@media (max-width: 575.98px) {
+  body {
+    background-color: #e0ccff; /* Lavender */
+  }
+
+  .news-card-container {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .news-left {
+    width: 100%;
+  }
+
+  .news-right {
+    width: 100%;
+  }
+  .news-right .image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* custom breakpoint - surface duo */
+
+@media (max-width: 540px) {
+  body {
+    background-color: red; /* Lavender */
+  }
+
+  .news-card-container {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .news-left {
+    width: 100%;
+  }
+
+  .news-title {
+    font-size: 0.7rem;
+  }
+  .news-right {
+    width: 100%;
+  }
+  .news-right .image {
+    width: 100%;
+    height: 150px;
+  }
+}
+
+/* Extra Extra Small - Tiny screens like iPhone SE (< 320px) */
+@media (max-width: 319.98px) {
+  body {
+    background-color: #cccccc; /* Gray fallback */
+  }
+
+  .news-title {
+    font-size: 0.8rem;
+  }
+
+  .news-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

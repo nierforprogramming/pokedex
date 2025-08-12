@@ -1,6 +1,19 @@
+.container {
+  position: relative;
+}
+
+header {
+  padding-block: 1.5rem;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  z-index: 1000;
+  top: 0;
+}
 .nav-container {
   display: flex;
   gap: 4rem;
+  padding-inline: var(--padding-inline);
 }
 
 .nav-right {
@@ -37,33 +50,15 @@
 }
 
 @media (max-width: 1536px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    width: 100%;
-    z-index: 50;
-    background-color: white;
-    top: 0;
-  }
 }
 
 @media (max-width: 575px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    width: 100%;
-    z-index: 50;
-    background-color: white;
-    top: 0;
-  }
   .container {
-    position: relative;
     display: flex;
     justify-content: center;
   }
 
   .nav-container {
-    flex-direction: column;
     gap: 2rem;
     text-align: center;
   }
@@ -74,14 +69,6 @@
 }
 
 @media (max-width: 435px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    width: 100%;
-    z-index: 50;
-    background-color: white;
-    top: 0;
-  }
   .container {
     display: flex;
     justify-content: center;
@@ -97,107 +84,5 @@
     text-align: center;
     width: 80%;
     margin: 0 auto;
-  }
-}
-
-@media (max-width: 431px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    width: 100%;
-    z-index: 50;
-    background-color: white;
-    top: 0;
-  }
-  .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .nav-right {
-    width: 90%;
-  }
-}
-
-@media (max-width: 415px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    width: 100%;
-    z-index: 50;
-    background-color: white;
-    top: 0;
-  }
-  .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .nav-right {
-    width: 90%;
-  }
-}
-
-@media (max-width: 414px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    width: 100%;
-    z-index: 50;
-    background-color: white;
-    top: 0;
-  }
-  .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .nav-right {
-    width: 90%;
-  }
-}
-
-@media (max-width: 375px) {
-  header {
-    position: fixed;
-    padding-block: 2rem;
-    z-index: 50;
-    top: 0;
-  }
-  .container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-  }
-
-  .nav-container {
-    flex-direction: column;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .nav-right {
-    width: 90%;
   }
 }

@@ -2,6 +2,7 @@
   --light-gray: #f2f2f2;
   --dark-gray: #808080;
   --gray-200: #c4c4c4;
+  --padding-inline: 3rem;
 }
 * {
   margin: 0;
@@ -22,7 +23,7 @@ body {
 
 .container {
   max-width: 1580px;
-  padding-inline: 2rem;
+  background-color: var(--light-gray);
 }
 
 a {

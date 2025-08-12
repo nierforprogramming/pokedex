@@ -1,0 +1,26 @@
+.badge-container {
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 1.2rem 1rem;
+  border-radius: 0.6rem;
+  width: 180px;
+  gap: 1rem;
+  position: relative;
+}
+
+.badge-text {
+  align-content: center;
+  color: white;
+  flex: 1;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.badge-image svg {
+  top: -50%;
+  right: -20px;
+  fill: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  font-size: 6rem;
+}

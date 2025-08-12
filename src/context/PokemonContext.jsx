@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { fetchSinglePokemon, getAllPokemons } from "../services/api";
 import { getRandomPokemons } from "../utils/utils";
+import { fetchPokemonNews } from "../services/news/news";
 
 const PokemonContext = createContext();
 
@@ -13,7 +14,8 @@ const PokemonContextProvider = (props) => {
   const [search, setSearch] = useState("");
   const [selectedPokemon, setSelectedPokemon] = useState([]);
   const [searchedPokemon, setSearchedPokemon] = useState([]);
-
+  const [pokemonNews, setPokemonNews] = useState([]);
+  const [searching, setSearching] = useState(false);
   useEffect(() => {
     async function _getAllPokemons() {
       try {
@@ -77,6 +79,27 @@ const PokemonContextProvider = (props) => {
     _fetchSinglePokemon();
   }, [search, randomPokemons]);
 
+  useEffect(() => {
+    async function _fetchPokemonNews() {
+      try {
+        setLoader(true);
+        setError(null);
+        const response = await fetchPokemonNews();
+
+        if (response) {
+          setLoader(false);
+          setError(false);
+          setPokemonNews(response);
+        }
+      } catch (error) {
+        setLoader(true);
+        setError(false);
+        console.log(error.message);
+      }
+    }
+    _fetchPokemonNews();
+  }, []);
+
   const value = {
     allPokemons,
     error,
@@ -91,6 +114,9 @@ const PokemonContextProvider = (props) => {
     selectedPokemon,
     setSelectedPokemon,
     searchedPokemon,
+    pokemonNews,
+    searching,
+    setSearching,
   };
 
   return (

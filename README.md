@@ -1,14 +1,15 @@
-# 📘 Pokédex Web App
+#Pokédex Web App
 
 Welcome to the Pokedex App. Find and know about your favorite pokemon
 
-## 🌐 Live Site
+##Live Site
 
 [🔗 Visit the App](https://mypokemondex.netlify.app)
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔍 Search Pokémon by name
-- 📄 View detailed stats, types, abilities, and sprites
+- Search Pokémon by name
+- View detailed stats, types, abilities, and sprites
+- Get the latest news of Pokémon
