@@ -17,20 +17,24 @@ const Home = () => {
     {
       text: "Pokedex",
       color: "teal",
+      link: "/pokedex",
     },
 
     {
       text: "Favourites",
       color: "hotpink",
+      link: "/favourites",
     },
 
     {
       text: "Types",
       color: "purple",
+      link: "/types",
     },
     {
       text: "News",
       color: "dodgerblue",
+      link: "/news",
     },
   ];
 
@@ -59,7 +63,9 @@ const Home = () => {
           <div>
             <div className="category-menu">
               {category.map((badge, index) => (
-                <Badge key={index} text={badge.text} bgColor={badge.color} />
+                <Link to={badge.link} key={index}>
+                  <Badge text={badge.text} bgColor={badge.color} />
+                </Link>
               ))}
             </div>
             <div className="news-cards-wrapper">

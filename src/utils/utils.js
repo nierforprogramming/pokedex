@@ -39,3 +39,30 @@ export function formatPokemonWeight(weightInHectograms) {
   const lbs = weightInHectograms * 0.220462;
   return `${lbs.toFixed(1)} lbs`;
 }
+
+export function cleanNewsText(text) {
+  if (!text) return "";
+
+  // Removes lines with links, navigation, disclaimers, etc.
+  return text
+    .split("\n")
+    .filter(
+      (line) =>
+        line.trim() !== "" &&
+        !line.includes("GamesRadar") &&
+        !line.includes("Sign up") &&
+        !line.includes("Weekly digests") &&
+        !line.includes("Cookies policy") &&
+        !line.includes("Privacy policy") &&
+        !line.includes("Nintendo Switch 2") &&
+        !line.includes("Contact") &&
+        !line.includes("Review guidelines") &&
+        !line.toLowerCase().startsWith("skip to main content") &&
+        !line.includes("newsletter") &&
+        !line.includes("footer") &&
+        !line.includes("Login") &&
+        !line.includes("comment") &&
+        !line.includes("affiliate")
+    )
+    .join("\n");
+}

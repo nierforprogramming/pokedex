@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { FaSearch } from "react-icons/fa";
 import { PokemonContext } from "../../context/PokemonContext";
 import Logo from "../Logo";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
   const { search, setSearch, setSearching, searching } =
     useContext(PokemonContext);
+  const location = useLocation();
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -49,7 +49,7 @@ const Navbar = () => {
       window.removeEventListener("resize", handleResize);
       clearTimeout(timeout);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <header>

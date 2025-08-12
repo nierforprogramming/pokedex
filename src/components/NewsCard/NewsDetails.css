@@ -1,0 +1,19 @@
+.pn-container {
+  padding-inline: 1.5rem;
+}
+
+.pn-container .news-title {
+  font-size: 0.7rem;
+}
+
+.pn-container .news-card {
+  margin-block: 1rem;
+  border-bottom: 1px solid var(--dark-gray);
+}
+
+.pn-container .pn-news-cards a {
+  color: black;
+}
+.pn-section-heading {
+  margin-block: 1rem;
+}
