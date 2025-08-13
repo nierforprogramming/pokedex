@@ -110,13 +110,9 @@ const PokemonDetails = () => {
 
                 {/* Tab Content */}
                 <div className="pk-stats-content">
-                  {selectedTab === "info" && (
+                  {selectedTab === "evolution" && (
                     <div className="detailtabs-content info-content">
-                      <p>
-                        {selectedPokemon.name} is a Pokémon with base experience
-                        of {selectedPokemon.base_experience} and{" "}
-                        {selectedPokemon.types?.length || 0} type(s).
-                      </p>
+                      <EvolutionChain pokemonId={pokemonId} />
                     </div>
                   )}
 
@@ -189,7 +185,6 @@ const PokemonDetails = () => {
             </div>
           </div>
         </div>
-        {/* <EvolutionChain pokemonId={pokemonId} /> */}
       </div>
     </>
   );

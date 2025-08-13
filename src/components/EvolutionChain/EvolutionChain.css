@@ -116,9 +116,6 @@
   .detailtabs-content {
     width: 100%;
   }
-  .stat-row {
-    background-color: rebeccapurple;
-  }
 
   .ec-pokemons {
     flex-direction: column;

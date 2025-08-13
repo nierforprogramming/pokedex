@@ -30,21 +30,7 @@ const EvolutionChain = ({ pokemonId }) => {
   return (
     <div className="evolution-chain">
       <div className="ec-container">
-        <div className="ec-head">
-          <h1>Evolution Chain</h1>
-        </div>
         <div className="ec-pokemons">
-          <div
-            className={`chain-connector  ${
-              evolutions.length == 2 ? "two-evolution" : ""
-            }${evolutions.length == 1 ? "one-evolution" : ""} ${
-              evolutions.length == 0 ? "no-evolution" : ""
-            }`}
-            style={{
-              "--type-color":
-                typeColors[evolutions[0]?.types[0]?.type?.name] || "#000",
-            }}
-          ></div>
           {evolutions.length ? (
             evolutions.map((evo, index) => (
               <Link to={`/${evo.id}`} key={evo.id}>
