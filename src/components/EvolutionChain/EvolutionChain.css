@@ -68,9 +68,6 @@
 
 /* 📱 Extra small devices (phones <576px) */
 @media (max-width: 575.98px) {
-  .pk-details {
-    padding-inline: 1rem;
-  }
   .pk-details-container {
     flex-direction: column;
   }

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import Loader from "../components/Loader/Loader";
 import NotFound from "../components/NotFound/NotFound";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Card from "../components/Card/Card";
 import "./pokedex.css";
 

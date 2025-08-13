@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { PokemonContext } from "../context/PokemonContext";
 import { fetchSinglePokemon } from "../services/api";
 import Loader from "../components/Loader/Loader";
@@ -12,9 +12,11 @@ const PokemonDetails = () => {
   const { pokemonId } = useParams();
   const { loader, setLoader, selectedPokemon, setSelectedPokemon } =
     useContext(PokemonContext);
+  const location = useLocation();
 
   const [selectedTab, setSelectedTab] = useState("measurements");
   const [animatedStats, setAnimatedStats] = useState([]);
+  const [bgColor, setBgColor] = useState("");
 
   useEffect(() => {
     async function _fetchSinglePokemon() {
@@ -42,6 +44,19 @@ const PokemonDetails = () => {
       return () => clearTimeout(timeout);
     }
   }, [selectedTab, selectedPokemon]);
+
+  useEffect(() => {
+    const homeContainer = document.querySelector(".home-container");
+
+    if (!homeContainer) return; // avoid null error
+
+    const prevColor = homeContainer.style.backgroundColor;
+    homeContainer.style.backgroundColor = "white";
+
+    return () => {
+      homeContainer.style.backgroundColor = prevColor;
+    };
+  }, []);
 
   if (loader || !selectedPokemon) {
     return <Loader />;
