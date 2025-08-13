@@ -167,6 +167,10 @@
     background-color: #ffc2c2; /* Soft red */
   }
 
+  .pk-stats-container {
+    width: max-content;
+  }
+
   .pk-stats-content {
     width: 100%;
   }
@@ -181,7 +185,6 @@
     background-color: #e0ccff; /* Lavender */
   }
   .pk-stats {
-    width: 100%;
     padding-inline: 2rem;
   }
 

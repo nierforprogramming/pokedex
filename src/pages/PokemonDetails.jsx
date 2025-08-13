@@ -101,7 +101,7 @@ const PokemonDetails = () => {
                 {selectedTab === "moves" && (
                   <div className="detailtabs-content moves-content">
                     {selectedPokemon?.moves.slice(0, 5).map(({ move }) => (
-                      <p>{move.name.replace("-", " ")}</p>
+                      <p key={move.name}>{move.name.replace("-", " ")}</p>
                     ))}
                   </div>
                 )}
@@ -124,11 +124,10 @@ const PokemonDetails = () => {
                     </div>
                     <div className="pk-stats-content-title">
                       <p className="title">Abilities</p>
-                      <p>
-                        {selectedPokemon.abilities
-                          ?.map((ability) => ability.ability?.name)
-                          .join(", ") || "N/A"}
-                      </p>
+
+                      {selectedPokemon.abilities
+                        ?.map((ability) => ability.ability?.name)
+                        .join(", ") || "N/A"}
                     </div>
                   </div>
                 )}
