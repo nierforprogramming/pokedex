@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { PokemonContext } from "../../context/PokemonContext";
 import NewsCard from "./NewsCard";
 import Loader from "../Loader/Loader";
@@ -30,6 +30,10 @@ const NewsDetails = () => {
     if (page < 1 || page > totalPages) return; // Boundary check
     setCurrentPage(page);
   };
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
 
   return (
     <div className="pokemon-news">
