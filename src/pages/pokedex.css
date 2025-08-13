@@ -1,0 +1,23 @@
+.pokedex {
+  padding: 2rem;
+}
+
+.pokedex-cards {
+  display: grid;
+  padding-block: 1rem;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  overflow-y: hidden;
+}
+
+.pokedex .pokemon-card {
+  overflow: hidden;
+}
+
+.pokedex-cards .pokemon-card-container .pokemon-card {
+  overflow: hidden;
+}
+
+.poke-ball {
+  overflow: hidden;
+}

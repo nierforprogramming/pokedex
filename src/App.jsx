@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
+import Pokedex from "./pages/Pokedex";
 import Navbar from "./components/Navbar/Navbar";
 import Favorites from "./pages/Favorites";
 import PokemonDetails from "./pages/PokemonDetails";
@@ -17,6 +18,7 @@ function App() {
           <div className="home-container">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/pokedex" element={<Pokedex />} />
               <Route path="/:pokemonId" element={<PokemonDetails />} />
               <Route path="/favourites" element={<Favorites />} />
               <Route path="/types" element={<Types />} />

@@ -42,7 +42,7 @@ const SingleNews = () => {
             </div>
 
             <div className="sn-text">
-              <p>{singleNewsData.text}</p>
+              <button>Read More</button>
             </div>
           </div>
         ) : (

@@ -38,6 +38,10 @@
   padding-block: 0.5rem;
 }
 
+.home-container .news-title {
+  color: black;
+}
+
 /* Extra Large - Normal desktops/laptops (< 1400px) */
 @media (max-width: 1399.98px) {
   body {
