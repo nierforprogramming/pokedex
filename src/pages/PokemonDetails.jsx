@@ -152,7 +152,7 @@ const PokemonDetails = () => {
             </div>
           </div>
         </div>
-        <EvolutionChain pokemonId={pokemonId} />
+        {/* <EvolutionChain pokemonId={pokemonId} /> */}
       </div>
     </>
   );

@@ -74,7 +74,7 @@ const Home = () => {
               </div>
               <div className="news-cards">
                 {pokemonNews?.news?.map((news) => (
-                  <Link key={news.id} to={`/news/${news.id}`}>
+                  <Link key={news.id} to={news.url} target="_blank">
                     <NewsCard pokemonNews={news} />
                   </Link>
                 ))}

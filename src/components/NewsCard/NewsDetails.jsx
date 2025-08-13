@@ -18,8 +18,9 @@ const NewsDetails = () => {
         <div className="pn-news-cards">
           {pokemonNews?.news?.map((singlePokemonNews) => (
             <Link
-              to={`/news/${singlePokemonNews.id}`}
+              to={singlePokemonNews.url}
               key={singlePokemonNews.title}
+              target="_blank"
             >
               <NewsCard pokemonNews={singlePokemonNews} />
             </Link>
