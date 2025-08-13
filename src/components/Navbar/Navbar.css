@@ -76,30 +76,17 @@ header {
 }
 
 /* 💻 Default: Extra large desktops (≥1400px) */
-.category-menu {
-  background-color: #f0f4f8; /* Soft light blue-gray */
-}
 
 /* 🖥 Extra Large Devices (Desktops, 1200px - 1399.98px) */
 @media (max-width: 1399.98px) {
-  .category-menu {
-    background-color: #e6f7ff; /* Soft powder blue */
-  }
 }
 
 /* 💼 Large Devices (Laptops, 992px - 1199.98px) */
 @media (max-width: 1199.98px) {
-  .category-menu {
-    background-color: #e8fce8; /* Gentle mint green */
-  }
 }
 
 /* 📱 Medium Devices (Tablets, 768px - 991.98px) */
 @media (max-width: 991.98px) {
-  .category-menu {
-    background-color: #fff9e6; /* Light cream yellow */
-  }
-
   .nav-right {
     width: 50%;
   }
@@ -107,10 +94,6 @@ header {
 
 /* 📲 Small Devices (Phones, 576px - 767.98px) */
 @media (max-width: 767.98px) {
-  .category-menu {
-    background-color: #ffecec; /* Light pink rose */
-  }
-
   .pokemon-ball-bg svg {
     font-size: 12rem;
   }
@@ -118,10 +101,6 @@ header {
 
 /* 📞 Extra Small Devices (Phones, <576px) */
 @media (max-width: 575.98px) {
-  .category-menu {
-    background-color: #f3e8ff; /* Lavender pastel */
-  }
-
   .container {
     display: flex;
     flex-direction: column;
@@ -144,10 +123,6 @@ header {
 
 /* 📟 Extra Extra Small (Tiny phones, < 320px) */
 @media (max-width: 319.98px) {
-  .category-menu {
-    background-color: #e0e0e0; /* Neutral soft gray */
-  }
-
   .container {
     display: flex;
     justify-content: center;
