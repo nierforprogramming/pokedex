@@ -60,7 +60,7 @@ const Home = () => {
             </div>
           )
         ) : (
-          <div>
+          <>
             <div className="category-menu">
               {category.map((badge, index) => (
                 <Link to={badge.link} key={index}>
@@ -80,7 +80,7 @@ const Home = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </section>
