@@ -16,6 +16,12 @@ const PokemonContextProvider = (props) => {
   const [searchedPokemon, setSearchedPokemon] = useState([]);
   const [pokemonNews, setPokemonNews] = useState([]);
   const [searching, setSearching] = useState(false);
+
+  // Pagination state for news
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  // Fetch All Pokémons once
   useEffect(() => {
     async function _getAllPokemons() {
       try {
@@ -40,6 +46,7 @@ const PokemonContextProvider = (props) => {
     _getAllPokemons();
   }, []);
 
+  // Fetch Pokémon by search
   useEffect(() => {
     async function _fetchSinglePokemon() {
       const query = search.trim().toLowerCase();
@@ -79,26 +86,26 @@ const PokemonContextProvider = (props) => {
     _fetchSinglePokemon();
   }, [search, randomPokemons]);
 
-  useEffect(() => {
-    async function _fetchPokemonNews() {
-      try {
-        setLoader(true);
-        setError(null);
-        const response = await fetchPokemonNews();
-
-        if (response) {
-          setLoader(false);
-          setError(false);
-          setPokemonNews(response);
-        }
-      } catch (error) {
-        setLoader(true);
-        setError(false);
-        console.log(error.message);
-      }
+  // Function to fetch news based on current page
+  const fetchNewsData = async (page = 1) => {
+    try {
+      setLoader(true);
+      setError(false);
+      const offset = (page - 1) * itemsPerPage;
+      const data = await fetchPokemonNews(offset, itemsPerPage);
+      setPokemonNews(data);
+    } catch (error) {
+      setError(true);
+      console.error("News fetch error:", error);
+    } finally {
+      setLoader(false);
     }
-    _fetchPokemonNews();
-  }, []);
+  };
+
+  // Fetch news on currentPage change
+  useEffect(() => {
+    fetchNewsData(currentPage);
+  }, [currentPage]);
 
   const value = {
     allPokemons,
@@ -117,6 +124,10 @@ const PokemonContextProvider = (props) => {
     pokemonNews,
     searching,
     setSearching,
+    currentPage,
+    setCurrentPage,
+    itemsPerPage,
+    fetchNewsData,
   };
 
   return (

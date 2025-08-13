@@ -17,3 +17,46 @@
 .pn-section-heading {
   margin-block: 1rem;
 }
+
+.pn-pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pn-pagination button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #efefef;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.pn-pagination button:hover {
+  background-color: #ccc;
+}
+
+.pn-pagination .active-page {
+  background-color: #ffcb05;
+  color: black;
+}
+
+.pn-pagination button {
+  margin: 2px;
+  padding: 6px 12px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+}
+
+.pn-pagination button.active-page {
+  background-color: gold;
+  font-weight: bold;
+}
+
+.pn-pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
