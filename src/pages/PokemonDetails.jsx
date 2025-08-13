@@ -91,7 +91,7 @@ const PokemonDetails = () => {
               <div className="pk-stats-container">
                 {/* Tab Selector */}
                 <div className="pk-stats-head-container">
-                  {["info", "measurements", "base-stats", "moves"].map(
+                  {["evolution", "measurements", "base-stats", "moves"].map(
                     (tab) => (
                       <div
                         key={tab}

@@ -43,30 +43,18 @@
 
 /* Extra Large - Normal desktops/laptops (< 1400px) */
 @media (max-width: 1399.98px) {
-  body {
-    background-color: #d6e9f9; /* Light blue */
-  }
 }
 
 /* Large - Small laptops/tablets in landscape (< 1200px) */
 @media (max-width: 1199.98px) {
-  body {
-    background-color: #c1f0dc; /* Mint green */
-  }
 }
 
 /* Medium - Tablets in portrait (< 992px) */
 @media (max-width: 991.98px) {
-  body {
-    background-color: #fff0b3; /* Light yellow */
-  }
 }
 
 /* Small - Phones in landscape/small tablets (< 768px) */
 @media (max-width: 767.98px) {
-  body {
-    background-color: #ffc2c2; /* Soft red */
-  }
   .nav-container {
     flex-direction: column;
   }
@@ -74,10 +62,6 @@
 
 /* Extra Small - Phones in portrait (< 576px) */
 @media (max-width: 575.98px) {
-  body {
-    background-color: #e0ccff; /* Lavender */
-  }
-
   .home-container .news-cards .news-card {
     margin-block: 0;
   }
@@ -85,7 +69,4 @@
 
 /* Extra Extra Small - Tiny screens like iPhone SE (< 320px) */
 @media (max-width: 319.98px) {
-  body {
-    background-color: #cccccc; /* Gray fallback */
-  }
 }
