@@ -27,8 +27,6 @@ const EvolutionChain = ({ pokemonId }) => {
   const primaryType = evolutions[0]?.types[0]?.type?.name || "normal";
   const borderColor = typeColors[primaryType] || "#A8A878";
 
-  console.log(evolutions[0]?.types[0]?.type?.name);
-
   return (
     <div className="evolution-chain">
       <div className="ec-container">
